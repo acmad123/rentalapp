@@ -1,0 +1,62 @@
+{
+  "_from": "git+https://github.com/litehelpers/Cordova-sqlite-evcore-extbuild-free.git",
+  "_id": "cordova-sqlite-evcore-extbuild-free@0.9.5",
+  "_inBundle": false,
+  "_location": "/cordova-sqlite-evcore-extbuild-free",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "https://github.com/litehelpers/Cordova-sqlite-evcore-extbuild-free",
+    "rawSpec": "https://github.com/litehelpers/Cordova-sqlite-evcore-extbuild-free",
+    "saveSpec": "git+https://github.com/litehelpers/Cordova-sqlite-evcore-extbuild-free.git",
+    "fetchSpec": "https://github.com/litehelpers/Cordova-sqlite-evcore-extbuild-free.git",
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/litehelpers/Cordova-sqlite-evcore-extbuild-free.git#3508fc63f77dbedc7762a817f86e7129a9f4eb93",
+  "_spec": "https://github.com/litehelpers/Cordova-sqlite-evcore-extbuild-free",
+  "_where": "C:\\Users\\Alexander\\Desktop\\Read Write stuff\\Read Write stuff",
+  "author": {
+    "name": "various"
+  },
+  "bugs": {
+    "url": "https://github.com/litehelpers/Cordova-sqlite-evcore-extbuild-free/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-sqlite-evcore-extbuild-free",
+    "platforms": [
+      "android",
+      "ios",
+      "osx",
+      "windows"
+    ]
+  },
+  "deprecated": false,
+  "description": "Cordova/PhoneGap sqlite storage - free enterprise version with Android performance/memory improvements and extra features for PhoneGap Build",
+  "devDependencies": {
+    "shelljs": "^0.7.4"
+  },
+  "homepage": "https://github.com/litehelpers/Cordova-sqlite-evcore-extbuild-free",
+  "keywords": [
+    "sqlite",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-osx",
+    "cordova-windows"
+  ],
+  "license": "GPL",
+  "name": "cordova-sqlite-evcore-extbuild-free",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/litehelpers/Cordova-sqlite-evcore-extbuild-free.git"
+  },
+  "scripts": {
+    "start": "node scripts/prepareSpec.js"
+  },
+  "version": "0.9.5"
+}
