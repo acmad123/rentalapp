@@ -53,7 +53,7 @@ function SubmitClicked()
 
 
        // the code below show a dialog box asking user the confirmation to save data.
-  navigator.notification.confirm(
+  notification.confirm(
       d,
       onConfirm,
       'Confirm Details',
@@ -81,12 +81,23 @@ function onConfirm(buttonIndex)
             id++;
         }
 
+        // getting the previously stored coordinates
+        var lat = localStorage.getItem("Lat");
+        var lang = localStorage.getItem("Lang");
+        localStorage.removeItem("Lat");
+        localStorage.removeItem("Lang");
+        
+        console.log(alert);
+        if (lat == "" || lang == "" || lat == "0")
+        {
+            alert("Kindly make sure your gps and internet are enabled.");
+            return;
         }
 
         // check if a table exists if not create one otherwise use the one which is already there.
         myDB.transaction(
             function (transaction) {
-                transaction.executeSql('CREATE TABLE IF NOT EXISTS MyTable ( id integer primary key autoincrement , rent text, name text , bedroom text, date text unique , property text , furniture text , notes text)', [],
+                transaction.executeSql('CREATE TABLE IF NOT EXISTS MyTable ( id integer primary key autoincrement , rent text, name text , bedroom text, date text unique , property text , furniture text , notes text , lat real , lang real )', [],
                     function (tx, result) {
                       
                     },
@@ -98,8 +109,8 @@ function onConfirm(buttonIndex)
         // Inserting Data into db
         ;
         myDB.transaction(function (transaction) {
-            var executeQuery = "INSERT INTO MyTable ( rent , name , bedroom , date , property , furniture , notes , ) VALUES (?,?,?,?,?,?,?) ";
-            transaction.executeSql(executeQuery, [ rent, name, bedroom, date, property, furniture, notes]
+            var executeQuery = "INSERT INTO MyTable ( rent , name , bedroom , date , property , furniture , notes , lat , lang ) VALUES (?,?,?,?,?,?,?,?,?) ";
+            transaction.executeSql(executeQuery, [ rent, name, bedroom, date, property, furniture, notes, lat, lang]
                 , function (tx, result) {
        
                     window.location.href = "index.html";
