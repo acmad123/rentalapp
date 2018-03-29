@@ -15,24 +15,6 @@ document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     myDB = window.sqlitePlugin.openDatabase({ name: "mySQLite3.db", location: 'default' });
 
-    // this code is getting the users location and saving it for later use. it will go in onSuccess function if it got the coordinates. it goes in onError function if something went wrong. if it fails to get the coordinates in the time mentioned in the timeout field it goes into onError function. The timeout is set in milliseconds.
-    navigator.geolocation.getCurrentPosition(onSuccess, onError, { timeout: 5000 });
-    function onSuccess(position) {
-        var lat = position.coords.latitude;
-        var lang = position.coords.longitude;
-
-        localStorage.setItem("Lat", lat);
-        localStorage.setItem("Lang", lang);
-  
-        };
-
-        function onError(error) {
-            alert("Problem occured while estabishing connection. Kindly make sure you have internet and GPS enabled.");
-            navigator.app.exitApp();
-        }
-
-
-    }
 
 
 function SubmitClicked()
@@ -94,22 +76,6 @@ function onConfirm(buttonIndex)
         if (id == null || id == undefined) {
             id = 1;
             localStorage.setItem("id", id);
-        }
-        else {
-            id++;
-        }
-
-        // getting the previously stored coordinates
-        var lat = localStorage.getItem("Lat");
-        var lang = localStorage.getItem("Lang");
-        localStorage.removeItem("Lat");
-        localStorage.removeItem("Lang");
-        
-        console.log(alert);
-        if (lat == "" || lang == "" || lat == "0")
-        {
-            alert("Kindly make sure your gps and internet are enabled.");
-            return;
         }
 
         // check if a table exists if not create one otherwise use the one which is already there.
