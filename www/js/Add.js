@@ -14,25 +14,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
     myDB = window.sqlitePlugin.openDatabase({ name: "mySQLite3.db", location: 'default' });
-
-    // this code is getting the users location and saving it for later use. it will go in onSuccess function if it got the coordinates. it goes in onError function if something went wrong. if it fails to get the coordinates in the time mentioned in the timeout field it goes into onError function. The timeout is set in milliseconds.
-    navigator.geolocation.getCurrentPosition(onSuccess, onError, { timeout: 5000 });
-    function onSuccess(position) {
-        var lat = position.coords.latitude;
-        var lang = position.coords.longitude;
-
-        localStorage.setItem("Lat", lat);
-        localStorage.setItem("Lang", lang);
-  
-        };
-
-        function onError(error) {
-            alert("Problem occured while estabishing connection. Kindly make sure you have internet and GPS enabled.");
-            navigator.app.exitApp();
-        }
-
-
-    }
+}
 
 
 function SubmitClicked()
@@ -99,23 +81,12 @@ function onConfirm(buttonIndex)
             id++;
         }
 
-        // getting the previously stored coordinates
-        var lat = localStorage.getItem("Lat");
-        var lang = localStorage.getItem("Lang");
-        localStorage.removeItem("Lat");
-        localStorage.removeItem("Lang");
-        
-        console.log(alert);
-        if (lat == "" || lang == "" || lat == "0")
-        {
-            alert("Kindly make sure your gps and internet are enabled.");
-            return;
         }
 
         // check if a table exists if not create one otherwise use the one which is already there.
         myDB.transaction(
             function (transaction) {
-                transaction.executeSql('CREATE TABLE IF NOT EXISTS MyTable ( id integer primary key autoincrement , rent text, name text , bedroom text, date text unique , property text , furniture text , notes text , lat real , lang real )', [],
+                transaction.executeSql('CREATE TABLE IF NOT EXISTS MyTable ( id integer primary key autoincrement , rent text, name text , bedroom text, date text unique , property text , furniture text , notes text)', [],
                     function (tx, result) {
                       
                     },
@@ -127,8 +98,8 @@ function onConfirm(buttonIndex)
         // Inserting Data into db
         ;
         myDB.transaction(function (transaction) {
-            var executeQuery = "INSERT INTO MyTable ( rent , name , bedroom , date , property , furniture , notes , lat , lang ) VALUES (?,?,?,?,?,?,?,?,?) ";
-            transaction.executeSql(executeQuery, [ rent, name, bedroom, date, property, furniture, notes, lat, lang]
+            var executeQuery = "INSERT INTO MyTable ( rent , name , bedroom , date , property , furniture , notes , ) VALUES (?,?,?,?,?,?,?) ";
+            transaction.executeSql(executeQuery, [ rent, name, bedroom, date, property, furniture, notes]
                 , function (tx, result) {
        
                     window.location.href = "index.html";
