@@ -14,7 +14,25 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
     myDB = window.sqlitePlugin.openDatabase({ name: "mySQLite3.db", location: 'default' });
-}
+
+    // this code is getting the users location and saving it for later use. it will go in onSuccess function if it got the coordinates. it goes in onError function if something went wrong. if it fails to get the coordinates in the time mentioned in the timeout field it goes into onError function. The timeout is set in milliseconds.
+    navigator.geolocation.getCurrentPosition(onSuccess, onError, { timeout: 5000 });
+    function onSuccess(position) {
+        var lat = position.coords.latitude;
+        var lang = position.coords.longitude;
+
+        localStorage.setItem("Lat", lat);
+        localStorage.setItem("Lang", lang);
+  
+        };
+
+        function onError(error) {
+            alert("Problem occured while estabishing connection. Kindly make sure you have internet and GPS enabled.");
+            navigator.app.exitApp();
+        }
+
+
+    }
 
 
 function SubmitClicked()
@@ -53,7 +71,7 @@ function SubmitClicked()
 
 
        // the code below show a dialog box asking user the confirmation to save data.
-  notification.confirm(
+  navigator.notification.confirm(
       d,
       onConfirm,
       'Confirm Details',
