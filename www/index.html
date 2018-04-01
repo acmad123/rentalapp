@@ -2,50 +2,31 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+ 
     <script defer type="text/javascript" src="js/index.js"></script>
 
-	
 	
     <title>Rental Apartments Finder </title>
 </head>
 
-
 <body>
-    <nav class="navbar navbar-inverse ">
-        <div class="container">
-            <div class="navbar-header">
+    <nav >
+            <div >
 
-                <a class="navbar-brand"><i class="fa fa-home" aria-hidden="true"></i>  Rental Apartments Finder</a>
+                <b >Rental Apartments Finder</b>
             </div>
-            <div id="navbar" class="collapse navbar-collapse ">
-            </div><!--/.nav-collapse -->
-        </div>
     </nav>
 
 
-        <div class="container text-center">
-            <div class="well">
-
-               
-
-<button id="my_button" onclick="SearchClicked()"> <i class="fa fa-search" aria-hidden="true"></i><b> Search </b> </button>
-                <button id="my_button" onclick="AddClicked()"><i class="fa fa-plus" aria-hidden="true"></i> <b> Add </b> </button>
-                <button id="my_button" onclick="DeleteClicked()"><i class="fa fa-trash" aria-hidden="true"></i> <b> Delete All </b> </button>
-                <button id="my_button" onclick="EditClicked()"><i class="fa fa-pencil" aria-hidden="true"></i> <b> Edit </b> </button>
-            </div>
+        <div>
+				<button onclick="SearchClicked()"> Search </button>
+                <button onclick="AddClicked()"> Add </button>
+                <button onclick="DeleteClicked()"> Delete All </button>
+                <button onclick="EditClicked()"> Edit </button>
             </div>
             <!-- Java Script -->
             <script type="text/javascript" src="cordova.js"></script>
             <script defer type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-            <script defer type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap-select.min.js"></script>
 </body>
 
 </html>
