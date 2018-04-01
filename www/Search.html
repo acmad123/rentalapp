@@ -2,55 +2,32 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
     
- 
    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-
-
 
     <title>Rental Apartments Finder</title>
 </head>
 
-
-
 <body>
-    <nav class="navbar navbar-inverse ">
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="index.html"><i class="fa fa-arrow-left fa-lg" aria-hidden="true"></i>  Search</a>
+    <nav>
+            <div>
+                <b href="index.html">Back</b>
             </div>
-        </div>
     </nav>
 
-    <div class="container text-center">
+    <div>
+                    <div>
 
-        <div class="row">
-            <div class="col-md-12">
-                <div class="well">
-
-
-
-                    <div class="form-group">
-
-                        <select id="property" class="selectpicker" title="Choose Property Type ( Required )" data-width="100%" data-style="btn-sample">
+                        <select id="property" title="Choose Property Type ( Required )">
                             <option value="Flat">Flat</option>
                             <option value="House">House</option>
                             <option value="Bungalow">Bungalow</option>
                         </select>
 
 
-                        <button id="insert" class="btn btn-success" onclick="SearchClicked()" style="margin-top:5px">Search</button>
+                        <button id="insert" onclick="SearchClicked()">Search</button>
                     </div>
-                    <p id="data"></p>
                 </div>
-            </div>
-        </div>
-    </div>
 
     <script type="text/javascript" src="cordova.js"></script>
    
